@@ -15,7 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf.urls import include
+from rango import views
 
 urlpatterns = [
+    url(r'^$', views.index, name='index'),
+    url(r'^rango/', include('rango.urls')),
+    # maps any URL starting with
+    # rango/ is forwarded to /
+    # handled by the rango app
+    # only the part after 'rango/'
+    # is forwarded.
     url(r'^admin/', admin.site.urls),
 ]
