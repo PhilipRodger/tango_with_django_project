@@ -15,4 +15,4 @@ def index(request):
     # it looks up the name in the context dictionary to find out what to replace it with.
 
 def about(request):
-    return HttpResponse("Rango says here is the about page. <br/> <a href='/rango/'>Index</a>")
+    return render(request, 'rango/about.html')
